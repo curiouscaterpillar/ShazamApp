@@ -5,11 +5,11 @@ using System.Text;
 
 namespace ShazamApp.Entities
 {
-    public class ShazamRecordEntity : TableEntity
+    public class Record : TableEntity
     {
-        public ShazamRecordEntity() { }
+        public Record() { }
 
-        public ShazamRecordEntity(string artist, string song)
+        public Record(string artist, string song)
         {
             PartitionKey = artist;
             RowKey = song;

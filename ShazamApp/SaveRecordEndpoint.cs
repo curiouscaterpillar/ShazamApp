@@ -5,21 +5,22 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using ShazamApp.Handlers;
+using ShazamApp.Core.Models;
 
 namespace ShazamApp
 {
-    public static class SaveEndpoint
+    public static class SaveRecordEndpoint
     {
         [FunctionName("Save")]
-        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "save")] HttpRequest req, ILogger log)
+        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "records")] HttpRequest req, ILogger log)
         {
             try
             {
                 return await new SaveEndpointHandler().HandleAsync(req, log);
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
-                return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+                return new ObjectResult(ErrorResponseModel.FromInternal(e.Message));
             }
         }
     }

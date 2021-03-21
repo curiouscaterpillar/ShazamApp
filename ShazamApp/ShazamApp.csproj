@@ -17,4 +17,12 @@
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShazamApp.Application\ShazamApp.Application.csproj" />
+    <ProjectReference Include="..\ShazamApp.Core\ShazamApp.Core.csproj" />
+    <ProjectReference Include="..\ShazamApp.DataAccess\ShazamApp.DataAccess.csproj" />
+  </ItemGroup>
 </Project>

@@ -1,24 +1,20 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Extensions.Logging;
-using ShazamApp.Entities;
-using System.Linq;
 using System.Threading.Tasks;
+using ShazamApp.Core.Abstractions;
+using ShazamApp.Application;
+using ShazamApp.Core.Models;
 
 namespace ShazamApp.Handlers
 {
-    public class SaveEndpointHandler : EndpointHandler
+	public class SaveEndpointHandler : EndpointHandler
     {
-        private const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=shazamstorage;AccountKey=bTJZ7qVlObtyi22kpdgXW5hLYma/UyqXyqf3KaQ03ZusV1Qu/uw2kB4DO0RegkSfPhcnnlngTqS445R7D7WsRA==;EndpointSuffix=core.windows.net";
-
-        private CloudStorageAccount _storageAccount;
-        private CloudTableClient _tableClient;
+        private readonly IRecordService _recordService;
 
         public SaveEndpointHandler() : base()
         {
-            _storageAccount = CloudStorageAccount.Parse(ConnectionString);
-            _tableClient = _storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+            _recordService = new RecordService();  
         }
 
         public override async Task<IActionResult> HandleAsync(HttpRequest req, ILogger log)
@@ -26,22 +22,13 @@ namespace ShazamApp.Handlers
             string artist = req.Query["artist"];
             string song = req.Query["song"];
 
-            string tableName = "shazamRecords";
+            RecordResponseModel result = await _recordService.SaveRecordAsync(artist, song);
 
-            CloudTable table = _tableClient.ListTables()
-                .FirstOrDefault(t => t.Name == tableName);
-
-            TableOperation insertOrMergeOperation = TableOperation.InsertOrMerge(
-                new ShazamRecordEntity(artist, song));
-
-            TableResult result = await table.ExecuteAsync(insertOrMergeOperation);
-            ShazamRecordEntity insertedArtist = result.Result as ShazamRecordEntity;
-
-            if (result.HttpStatusCode >= StatusCodes.Status200OK && result.HttpStatusCode < StatusCodes.Status300MultipleChoices)
+            if (result != null)
             {
-                log.LogInformation($"Created Artist: {insertedArtist.Artist} with song {song}");
+                log.LogInformation($"Created Artist: {result.Artist} with song {result.Song}");
 
-                return new StatusCodeResult(StatusCodes.Status200OK);
+                return new ObjectResult(result);
             }
 
             return new StatusCodeResult(StatusCodes.Status400BadRequest);
