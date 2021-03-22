@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Cosmos.Table" Version="1.0.8" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.3" />
+    <PackageReference Include="QuickInject" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
@@ -22,7 +23,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ShazamApp.Application\ShazamApp.Application.csproj" />
+    <ProjectReference Include="..\ShazamApp.Authentication\ShazamApp.Authentication.csproj" />
     <ProjectReference Include="..\ShazamApp.Core\ShazamApp.Core.csproj" />
     <ProjectReference Include="..\ShazamApp.DataAccess\ShazamApp.DataAccess.csproj" />
+    <ProjectReference Include="..\ShazamApp.Entities\ShazamApp.Entities.csproj" />
   </ItemGroup>
 </Project>

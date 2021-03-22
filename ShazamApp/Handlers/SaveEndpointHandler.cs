@@ -10,11 +10,14 @@ namespace ShazamApp.Handlers
 {
 	public class SaveEndpointHandler : EndpointHandler
     {
+        private readonly IAuthenticationHandler _authHandler;
+
         private readonly IRecordService _recordService;
 
         public SaveEndpointHandler() : base()
         {
             _recordService = new RecordService();  
+           
         }
 
         public override async Task<IActionResult> HandleAsync(HttpRequest req, ILogger log)

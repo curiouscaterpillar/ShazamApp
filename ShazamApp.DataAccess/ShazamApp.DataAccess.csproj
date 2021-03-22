@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShazamApp.Core\ShazamApp.Core.csproj" />
+    <ProjectReference Include="..\ShazamApp.Entities\ShazamApp.Entities.csproj" />
   </ItemGroup>
 
 </Project>

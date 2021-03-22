@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShazamApp", "ShazamApp\Shaz
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShazamApp.Core", "ShazamApp.Core\ShazamApp.Core.csproj", "{4A88CE1B-B55C-46FE-9100-B162244B0689}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShazamApp.DataAccess", "ShazamApp.DataAccess\ShazamApp.DataAccess.csproj", "{2A531458-36FF-4CE8-B9A3-40A27E4DC03B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShazamApp.DataAccess", "ShazamApp.DataAccess\ShazamApp.DataAccess.csproj", "{2A531458-36FF-4CE8-B9A3-40A27E4DC03B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShazamApp.Application", "ShazamApp.Application\ShazamApp.Application.csproj", "{D0FA9470-C18E-430C-B006-0C4943282E27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShazamApp.Application", "ShazamApp.Application\ShazamApp.Application.csproj", "{D0FA9470-C18E-430C-B006-0C4943282E27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShazamApp.Authentication", "ShazamApp.Authentication\ShazamApp.Authentication.csproj", "{D7C1343C-441C-4966-A701-E0C8A8EE2850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShazamApp.Entities", "ShazamApp.Entities\ShazamApp.Entities.csproj", "{F0B15A7F-F526-42B9-9726-9A689DC611FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{D0FA9470-C18E-430C-B006-0C4943282E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0FA9470-C18E-430C-B006-0C4943282E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0FA9470-C18E-430C-B006-0C4943282E27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7C1343C-441C-4966-A701-E0C8A8EE2850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7C1343C-441C-4966-A701-E0C8A8EE2850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7C1343C-441C-4966-A701-E0C8A8EE2850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7C1343C-441C-4966-A701-E0C8A8EE2850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0B15A7F-F526-42B9-9726-9A689DC611FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0B15A7F-F526-42B9-9726-9A689DC611FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0B15A7F-F526-42B9-9726-9A689DC611FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0B15A7F-F526-42B9-9726-9A689DC611FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
